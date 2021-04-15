@@ -21,7 +21,7 @@ elif command -v apt &>/dev/null; then
     # Debian/Ubuntu
     echo Installing pip3 via apt
     sudo apt update
-    sudo apt install python3-pip python3-setuptools pandoc gfortran
+    sudo apt install python3-pip python3-setuptools
 elif command -v zypper &>/dev/null; then
     # openSUSE
     echo Installing pip3 via zypper
@@ -48,6 +48,24 @@ if ! command -v pip3 &>/dev/null; then
     exit 1
 else
     echo Pip is successfully installed
+fi
+echo ::group:: Installing Pandoc
+if command -v pandoc &>/dev/null; then
+    echo Found pandoc in system path
+elif command -v apt &>/dev/null; then
+    # Debian/Ubuntu
+    echo Installing pandoc via apt
+    sudo apt update
+    sudo apt install pandoc
+fi
+echo ::group:: Installing gfortran
+if command -v gfortran &>/dev/null; then
+    echo Found gfortran in system path
+elif command -v apt &>/dev/null; then
+    # Debian/Ubuntu
+    echo Installing gfortran via apt
+    sudo apt update
+    sudo apt install gfortran
 fi
 echo Installing sphinx via pip
 pip3 install -U sphinx
