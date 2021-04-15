@@ -28,5 +28,5 @@ inputs:
     default: ''
 
 runs:
-  using: 'node12'
-  main: 'main.js'
+  using: 'docker'
+  image: 'docker://pandoc/core:2.9'
