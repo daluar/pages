@@ -21,7 +21,7 @@ elif command -v apt &>/dev/null; then
     # Debian/Ubuntu
     echo Installing pip3 via apt
     sudo apt update
-    sudo apt install python3-pip python3-setuptools
+    sudo apt install python3-pip python3-setuptools pandoc gfortran
 elif command -v zypper &>/dev/null; then
     # openSUSE
     echo Installing pip3 via zypper
